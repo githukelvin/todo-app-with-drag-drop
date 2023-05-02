@@ -1,1 +1,250 @@
-/*# sourceMappingURL=main.css.map */
+@font-face {
+  font-family: "bold";
+  src: url("../fonts/JosefinSans-Bold.woff2") format("woff2"), url("../fonts/JosefinSans-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "regular";
+  src: url("../fonts/JosefinSans-Regular.woff2") format("woff2"), url("../fonts/JosefinSans-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  list-style: none;
+  border: none;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  background: hsl(235, 21%, 11%);
+}
+
+.container {
+  max-width: 400px;
+  width: 87%;
+  margin-inline: auto;
+}
+
+main {
+  width: 100%;
+  height: 100dvh;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.content .form {
+  background: hsl(235, 24%, 19%);
+  border-radius: 5px;
+}
+.content .form form {
+  padding: 1em 1.5em;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+}
+.content .form form input[type=text] {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background: hsl(235, 24%, 19%);
+  color: hsl(234, 39%, 85%);
+  font-family: "regular";
+  font-size: 0.8em;
+}
+.content .form form input[type=text]::placeholder {
+  color: hsl(236, 33%, 92%);
+  font-weight: 400;
+}
+.content .form form input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(119, 122, 146, 0.4);
+  transition: 0.2s all linear;
+  cursor: pointer;
+  position: relative;
+}
+.content .lists {
+  background: hsl(235, 24%, 19%);
+  border-radius: 5px;
+}
+.content .lists .list {
+  padding: 1em 1.5em;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.content .lists .list:not(:last-child) {
+  border-bottom: 1px solid hsl(234, 11%, 52%);
+}
+.content .lists .list .list-header {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  height: auto;
+}
+.content .lists .list input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(119, 122, 146, 0.4);
+  transition: 0.2s all linear;
+  margin-right: 5px;
+  cursor: pointer;
+  position: relative;
+}
+.content .lists .list input[type=radio]:hover {
+  background: linear-gradient(hsl(235, 24%, 19%), hsl(235, 24%, 19%)) padding-box, linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
+  border-radius: 50em;
+  border: 1px solid transparent;
+  border-image: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) 1;
+  border-radius: 50%;
+}
+.content .lists .list input[type=radio]:checked {
+  background: linear-gradient(transparent, transparent) padding-box, linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
+  border-radius: 50em;
+  border: 1px solid transparent;
+  border-image: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) 1;
+  border-radius: 50%;
+  outline: unset !important;
+}
+.content .lists .list input[type=radio]:checked::before {
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
+  display: grid;
+  place-content: center;
+  height: 100%;
+  color: #fff;
+  font-size: 0.8em;
+  font-weight: 900;
+}
+.content .lists .list p {
+  font-family: "regular";
+  font-size: 0.8em;
+  color: hsl(234, 39%, 85%);
+}
+.content .lists .list p:hover {
+  color: hsl(235, 24%, 19%);
+}
+.content .lists .img {
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+}
+.content .lists .img img {
+  width: 100%;
+  object-fit: contain;
+}
+.content .filters {
+  background: hsl(235, 24%, 19%);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.content .filters p {
+  cursor: pointer;
+  font-family: "bold";
+  font-size: 0.8em;
+  text-transform: uppercase;
+  color: hsl(234, 11%, 52%);
+}
+.content .filters p:hover {
+  color: hsl(235, 24%, 19%);
+}
+.content .filters p.active {
+  color: hsl(235, 24%, 19%);
+}
+.content .info {
+  background: hsl(235, 24%, 19%);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+}
+.content .info p {
+  font-family: "bold";
+  font-size: 0.8em;
+  text-transform: uppercase;
+  color: hsl(234, 11%, 52%);
+}
+.content .info .clear {
+  cursor: pointer;
+  font-family: "bold";
+  font-size: 0.8em;
+  text-transform: uppercase;
+  color: hsl(234, 11%, 52%);
+}
+.content .info .clear:hover {
+  color: hsl(235, 24%, 19%);
+}
+
+header {
+  background-image: url("../images/bg-desktop-dark.jpg");
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+header .nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 2.98em 0;
+}
+header .nav p {
+  font-family: "bold";
+  font-size: 1.6em;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+}
+header .nav .theme-toggle {
+  width: 20px;
+  height: 20px;
+  background-position: center;
+  background-size: contain;
+  background-image: url("../images/icon-sun.svg");
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.light main {
+  background: hsl(0, 0%, 98%);
+}
+.light header {
+  background-image: url("../images/bg-desktop-light.jpg");
+}
+.light header .nav .theme-toggle {
+  background-image: url("../images/icon-moon.svg");
+}/*# sourceMappingURL=main.css.map */

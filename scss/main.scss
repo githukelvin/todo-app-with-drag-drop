@@ -1,0 +1,54 @@
+@forward "./partials";
+@use "./partials/fonts" as*;
+@use "./partials/colors" as *;
+
+header{
+    background-image: url("../images/bg-desktop-dark.jpg");
+    width: 100%;
+    height: 200px;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+   
+        .nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            padding: 2.98em 0;
+            
+            p{
+                font-family: 'bold';
+                font-size: 1.6em;
+                letter-spacing: .42em;
+                text-transform: uppercase;
+            } 
+            .theme-toggle{
+                $size:20px;
+                width: $size;
+                height: $size;
+                background-position: center;
+                background-size: contain;
+                background-image: url("../images/icon-sun.svg");
+                background-repeat: no-repeat;
+                cursor: pointer;
+            }
+        }
+}
+// light theme
+.light{
+    main{
+        background: $VeryLightGray;
+    }
+    header{
+        background-image: url("../images/bg-desktop-light.jpg");
+        .nav{
+           
+            .theme-toggle{
+                background-image: url("../images/icon-moon.svg");
+            }
+        }
+    }
+  
+}

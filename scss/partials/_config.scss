@@ -1,0 +1,22 @@
+@use "./colors" as *;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    outline:none;
+    list-style:none;
+    border:none;
+
+}
+html{
+    color-scheme: light dark;
+}
+body{
+    background:$VeryDarkBlue ;
+}
+.container{
+    max-width: 400px;
+    width: 87%;
+    margin-inline: auto;
+}

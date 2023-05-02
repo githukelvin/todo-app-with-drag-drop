@@ -11,6 +11,10 @@ The designs were created to the following widths:
 
 ### Primary
 
+```sh
+
+```
+
 - Bright Blue: hsl(220, 98%, 61%)
 - Check Background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%)
 
@@ -33,6 +37,10 @@ The designs were created to the following widths:
 - Dark Grayish Blue: hsl(234, 11%, 52%)
 - Very Dark Grayish Blue: hsl(233, 14%, 35%)
 - Very Dark Grayish Blue: hsl(237, 14%, 26%)
+
+```sh
+
+```
 
 ## Typography
 

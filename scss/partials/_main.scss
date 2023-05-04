@@ -1,32 +1,27 @@
 @use "./fonts" as*;
 @use "./colors" as *;
-
+@use "./mixins" as *;
 
 main{
     width: 100%;
     height: 100dvh;
 }
-@mixin all{
-  background: $VeryDarkDesaturatedBlue;
-  border-radius: 5px;
 
-
-
-}
 .content{
     display: flex;
     flex-direction: column;
     gap: 1em;
+    margin-top: -5.9em;
     .form{
         @include all;
        form{
-        padding: 1em 1.5em;
+        padding: .95em 1.3em;
         width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        gap: 1em;
+        gap: .9em;
         input[type="text"]{
             width: 100%;
             // padding: 1em;
@@ -35,33 +30,25 @@ main{
             background: $VeryDarkDesaturatedBlue;
             color: $LightGrayishBlue;
             font-family: 'regular';
-            font-size: .8em;
+            font-size: 1.2em;
            
             &::placeholder{
-                color: $LightGrayishBluehover;
+                color: $DarkGrayishBlue;
                 font-weight: 400;
+                font-size: .6em;
             }
         }
-        input[type="radio"]{
-            $radio: 20px;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            border-radius: 50%;
-            width: $radio ;
-            height: $radio;
-            border: 1px solid rgba($DarkGrayishBlue , .4);
-            transition: 0.2s all linear;
-            // margin-right: 5px;
-            cursor: pointer;
-            position: relative;
-        }
+       .radio
+       {
+        @include radio;
+
+       }
        }
     }
      .lists{
         @include all;
        .list{
-        padding: 1em 1.5em;
+        padding: 1em 1.3em;
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -69,69 +56,38 @@ main{
         justify-content: space-between;
         
         &:not(:last-child) {
-                border-bottom: 1px solid $DarkGrayishBlue;
+                border-bottom: 1px solid rgba($DarkGrayishBlue,.3);
             }
         .list-header{
             display: flex;
             flex-direction: row;
-            gap: .5em;
+            align-items: center;
+            gap: .65em;
             height: auto;
-        }
-        input[type="radio"]{
-            $radio:20px;
-            -webkit-appearance: none;
-                -moz-appearance: none;
-                appearance: none;
-                border-radius: 50%;
-                width:$radio ;
-                height: $radio;
-                border: 1px solid rgba($DarkGrayishBlue ,.4);
-                transition: 0.2s all linear;
-                margin-right: 5px;
-                cursor: pointer;
-                position: relative;
-                &:hover{
-                background: linear-gradient($VeryDarkDesaturatedBlue,$VeryDarkDesaturatedBlue) padding-box,
-                    $CheckBackground border-box;
-                border-radius: 50em;
-                border: 1px solid transparent;
-                border-image: $CheckBackground 1;
-                border-radius: 50%;
+            .radio {
+                    @include radio;
+            
                 }
-                &:checked {
-                    &::before{
-                        content: "\f00c";
-                        font-family: "Font Awesome 5 Free";
-                        display: grid;
-                        place-content: center;
-                        height: 100%;
-                        color: #fff;
-                        font-size: .8em;
-                        font-weight: 900;
-                    }
-                    background: linear-gradient(transparent, transparent) padding-box,
-                            $CheckBackground border-box;
-                    border-radius: 50em;
-                    border: 1px solid transparent;
-                    border-image: $CheckBackground 1;
-                    border-radius: 50%;
-                    outline: unset !important
-                            /* I added this one for Edge (chromium) support */
-                    }
-        }
-        p{
-            font-family: 'regular';
-            font-size: .8em;
-            // text-transform: capitalize;
-            color: $LightGrayishBlue;
-            &:hover{
-                color: $VeryDarkDesaturatedBlue;
+            
+            p {
+                font-family: 'regular';
+                font-size: .72em;
+                color: $LightGrayishBlue;
+        
+                &:hover {
+                    color: $VeryDarkDesaturatedBlue;
+                }
+                &.check{
+                    text-decoration: line-through;
+                    color: $DarkGrayishBlue;
+                }
             }
         }
+       
       
        }
         .img {
-            $size: 10px;
+            $size: 14px;
             width: $size;
             height: $size;
             cursor: pointer;
@@ -146,6 +102,7 @@ main{
      .filters{
         @include all;
         display: flex;
+        padding: 1.09em .9em;
         flex-direction: row;
         justify-content: center;
         align-items: center;
@@ -153,12 +110,11 @@ main{
         p{
             cursor: pointer;
             font-family: 'bold';
-            font-size: .8em;
-            // letter-spacing: .42em;
-            text-transform: uppercase;
+            font-size: .9em;
+            text-transform: capitalize;
             color: $DarkGrayishBlue;
             &:hover{
-                color: $VeryDarkDesaturatedBlue;
+                color: $LightGrayishBluehover;
             }
             &.active{
                 color: $VeryDarkDesaturatedBlue;
@@ -169,29 +125,37 @@ main{
      }
      .info{
         @include all;
+        padding: 1.2em 1.3em;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         gap:1em;
         p{
-            font-family: 'bold';
-            font-size: .8em;
-            // letter-spacing: .42em;
-            text-transform: uppercase;
+            font-family: 'regular';
+            font-size: .7em;
             color: $DarkGrayishBlue;
         }
         .clear{
             cursor: pointer;
             font-family: 'bold';
-            font-size: .8em;
-            // letter-spacing: .42em;
-            text-transform: uppercase;
+            font-size: .7em;
+            text-transform: capitalize;
             color: $DarkGrayishBlue;
             &:hover{
                 color: $VeryDarkDesaturatedBlue;
             }
         }
      }
+ 
+}
+.drag {
+    text-align: center;
+    font-family: 'bold';
+    padding-top: 3.2em;
+    font-size: .83em;
+    // word-spacing: 2px;
+    color: $DarkGrayishBlue;
+
 
 }

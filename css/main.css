@@ -34,6 +34,12 @@ body {
   width: 87%;
   margin-inline: auto;
 }
+@media (max-width: 1440px) {
+  .container {
+    max-width: 1440px;
+    width: 100%;
+  }
+}
 
 main {
   width: 100%;
@@ -44,19 +50,20 @@ main {
   display: flex;
   flex-direction: column;
   gap: 1em;
+  margin-top: -5.9em;
 }
 .content .form {
   background: hsl(235, 24%, 19%);
   border-radius: 5px;
 }
 .content .form form {
-  padding: 1em 1.5em;
+  padding: 0.95em 1.3em;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 1em;
+  gap: 0.9em;
 }
 .content .form form input[type=text] {
   width: 100%;
@@ -65,30 +72,40 @@ main {
   background: hsl(235, 24%, 19%);
   color: hsl(234, 39%, 85%);
   font-family: "regular";
-  font-size: 0.8em;
+  font-size: 1.2em;
 }
 .content .form form input[type=text]::placeholder {
-  color: hsl(236, 33%, 92%);
+  color: hsl(234, 11%, 52%);
   font-weight: 400;
+  font-size: 0.6em;
 }
-.content .form form input[type=radio] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border-radius: 50%;
+.content .form form .radio {
   width: 20px;
   height: 20px;
-  border: 1px solid rgba(119, 122, 146, 0.4);
-  transition: 0.2s all linear;
+  font-size: 1em;
+  border: 1px solid rgba(119, 122, 146, 0.5);
+  border-radius: 50%;
   cursor: pointer;
-  position: relative;
+}
+.content .form form .radio:hover {
+  background: linear-gradient(hsl(235, 24%, 19%), hsl(235, 24%, 19%)) padding-box, linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
+}
+.content .form form .radio.check::before {
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
+  background-image: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  color: white;
+  padding: 0.23em;
+  font-size: 0.8em;
+  border-radius: 50%;
+  font-weight: bold;
 }
 .content .lists {
   background: hsl(235, 24%, 19%);
   border-radius: 5px;
 }
 .content .lists .list {
-  padding: 1em 1.5em;
+  padding: 1em 1.3em;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -96,63 +113,51 @@ main {
   justify-content: space-between;
 }
 .content .lists .list:not(:last-child) {
-  border-bottom: 1px solid hsl(234, 11%, 52%);
+  border-bottom: 1px solid rgba(119, 122, 146, 0.3);
 }
 .content .lists .list .list-header {
   display: flex;
   flex-direction: row;
-  gap: 0.5em;
+  align-items: center;
+  gap: 0.65em;
   height: auto;
 }
-.content .lists .list input[type=radio] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border-radius: 50%;
+.content .lists .list .list-header .radio {
   width: 20px;
   height: 20px;
-  border: 1px solid rgba(119, 122, 146, 0.4);
-  transition: 0.2s all linear;
-  margin-right: 5px;
+  font-size: 1em;
+  border: 1px solid rgba(119, 122, 146, 0.5);
+  border-radius: 50%;
   cursor: pointer;
-  position: relative;
 }
-.content .lists .list input[type=radio]:hover {
+.content .lists .list .list-header .radio:hover {
   background: linear-gradient(hsl(235, 24%, 19%), hsl(235, 24%, 19%)) padding-box, linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
-  border-radius: 50em;
-  border: 1px solid transparent;
-  border-image: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) 1;
-  border-radius: 50%;
 }
-.content .lists .list input[type=radio]:checked {
-  background: linear-gradient(transparent, transparent) padding-box, linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
-  border-radius: 50em;
-  border: 1px solid transparent;
-  border-image: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) 1;
-  border-radius: 50%;
-  outline: unset !important;
-}
-.content .lists .list input[type=radio]:checked::before {
+.content .lists .list .list-header .radio.check::before {
   content: "\f00c";
   font-family: "Font Awesome 5 Free";
-  display: grid;
-  place-content: center;
-  height: 100%;
-  color: #fff;
+  background-image: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  color: white;
+  padding: 0.23em;
   font-size: 0.8em;
-  font-weight: 900;
+  border-radius: 50%;
+  font-weight: bold;
 }
-.content .lists .list p {
+.content .lists .list .list-header p {
   font-family: "regular";
-  font-size: 0.8em;
+  font-size: 0.72em;
   color: hsl(234, 39%, 85%);
 }
-.content .lists .list p:hover {
+.content .lists .list .list-header p:hover {
   color: hsl(235, 24%, 19%);
 }
+.content .lists .list .list-header p.check {
+  text-decoration: line-through;
+  color: hsl(234, 11%, 52%);
+}
 .content .lists .img {
-  width: 10px;
-  height: 10px;
+  width: 14px;
+  height: 14px;
   cursor: pointer;
 }
 .content .lists .img img {
@@ -163,6 +168,7 @@ main {
   background: hsl(235, 24%, 19%);
   border-radius: 5px;
   display: flex;
+  padding: 1.09em 0.9em;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -171,12 +177,12 @@ main {
 .content .filters p {
   cursor: pointer;
   font-family: "bold";
-  font-size: 0.8em;
-  text-transform: uppercase;
+  font-size: 0.9em;
+  text-transform: capitalize;
   color: hsl(234, 11%, 52%);
 }
 .content .filters p:hover {
-  color: hsl(235, 24%, 19%);
+  color: hsl(236, 33%, 92%);
 }
 .content .filters p.active {
   color: hsl(235, 24%, 19%);
@@ -184,6 +190,7 @@ main {
 .content .info {
   background: hsl(235, 24%, 19%);
   border-radius: 5px;
+  padding: 1.2em 1.3em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -191,20 +198,27 @@ main {
   gap: 1em;
 }
 .content .info p {
-  font-family: "bold";
-  font-size: 0.8em;
-  text-transform: uppercase;
+  font-family: "regular";
+  font-size: 0.7em;
   color: hsl(234, 11%, 52%);
 }
 .content .info .clear {
   cursor: pointer;
   font-family: "bold";
-  font-size: 0.8em;
-  text-transform: uppercase;
+  font-size: 0.7em;
+  text-transform: capitalize;
   color: hsl(234, 11%, 52%);
 }
 .content .info .clear:hover {
   color: hsl(235, 24%, 19%);
+}
+
+.drag {
+  text-align: center;
+  font-family: "bold";
+  padding-top: 3.2em;
+  font-size: 0.83em;
+  color: hsl(234, 11%, 52%);
 }
 
 header {
@@ -214,6 +228,11 @@ header {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+@media (max-width: 1440px) {
+  header {
+    height: 300px;
+  }
 }
 header .nav {
   display: flex;

@@ -30,20 +30,20 @@ body {
 }
 
 .container {
-  max-width: 400px;
-  width: 87%;
+  width: 100%;
+  max-width: 87%;
   margin-inline: auto;
 }
-@media (max-width: 1440px) {
+@media (min-width: 1440px) {
   .container {
     max-width: 1440px;
-    width: 100%;
+    width: 34%;
   }
 }
 
 main {
   width: 100%;
-  height: 100dvh;
+  height: fit-content;
 }
 
 .content {
@@ -51,6 +51,15 @@ main {
   flex-direction: column;
   gap: 1em;
   margin-top: -5.9em;
+  position: relative;
+  isolation: isolate;
+  box-shadow: 0.2px 4.8px 1.4px rgba(0, 0, 0, 0.17), 0.4px 10.6px 3.2px rgba(0, 0, 0, 0.198), 0.7px 17.8px 5.3px rgba(0, 0, 0, 0.222), 1px 26.9px 8.1px rgba(0, 0, 0, 0.24), 1.5px 38.8px 11.6px rgba(0, 0, 0, 0.253), 2.1px 54.9px 16.5px rgba(0, 0, 0, 0.261), 3px 77.9px 23.4px rgba(0, 0, 0, 0.261), 4.4px 113.2px 33.9px rgba(0, 0, 0, 0.252), 6.8px 174.4px 52.3px rgba(0, 0, 0, 0.231), 12px 310px 93px rgba(0, 0, 0, 0.185);
+}
+@media (min-width: 1440px) {
+  .content {
+    margin-top: -8.9em;
+    gap: 1.2em;
+  }
 }
 .content .form {
   background: hsl(235, 24%, 19%);
@@ -65,6 +74,12 @@ main {
   align-items: center;
   gap: 0.9em;
 }
+@media (min-width: 1440px) {
+  .content .form form {
+    padding: 1.3em 1.3em;
+    gap: 1.6em;
+  }
+}
 .content .form form input[type=text] {
   width: 100%;
   border: none;
@@ -74,10 +89,20 @@ main {
   font-family: "regular";
   font-size: 1.2em;
 }
+@media (min-width: 1440px) {
+  .content .form form input[type=text] {
+    font-size: 1.37em;
+  }
+}
 .content .form form input[type=text]::placeholder {
   color: hsl(234, 11%, 52%);
   font-weight: 400;
   font-size: 0.6em;
+}
+@media (min-width: 1440px) {
+  .content .form form input[type=text]::placeholder {
+    font-size: 0.8em;
+  }
 }
 .content .form form .radio {
   width: 20px;
@@ -86,6 +111,13 @@ main {
   border: 1px solid rgba(119, 122, 146, 0.5);
   border-radius: 50%;
   cursor: pointer;
+  position: relative;
+}
+@media (min-width: 1440px) {
+  .content .form form .radio {
+    width: 25px;
+    height: 25px;
+  }
 }
 .content .form form .radio:hover {
   background: linear-gradient(hsl(235, 24%, 19%), hsl(235, 24%, 19%)) padding-box, linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
@@ -100,9 +132,17 @@ main {
   border-radius: 50%;
   font-weight: bold;
 }
+@media (min-width: 1440px) {
+  .content .form form .radio.check::before {
+    font-size: 1em;
+    position: relative;
+    top: 4px;
+  }
+}
 .content .lists {
   background: hsl(235, 24%, 19%);
   border-radius: 5px;
+  isolation: isolate;
 }
 .content .lists .list {
   padding: 1em 1.3em;
@@ -111,6 +151,11 @@ main {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+@media (min-width: 1440px) {
+  .content .lists .list {
+    padding: 1.235em 1.3em;
+  }
 }
 .content .lists .list:not(:last-child) {
   border-bottom: 1px solid rgba(119, 122, 146, 0.3);
@@ -122,6 +167,11 @@ main {
   gap: 0.65em;
   height: auto;
 }
+@media (min-width: 1440px) {
+  .content .lists .list .list-header {
+    gap: 1.5em;
+  }
+}
 .content .lists .list .list-header .radio {
   width: 20px;
   height: 20px;
@@ -129,6 +179,13 @@ main {
   border: 1px solid rgba(119, 122, 146, 0.5);
   border-radius: 50%;
   cursor: pointer;
+  position: relative;
+}
+@media (min-width: 1440px) {
+  .content .lists .list .list-header .radio {
+    width: 25px;
+    height: 25px;
+  }
 }
 .content .lists .list .list-header .radio:hover {
   background: linear-gradient(hsl(235, 24%, 19%), hsl(235, 24%, 19%)) padding-box, linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
@@ -143,10 +200,22 @@ main {
   border-radius: 50%;
   font-weight: bold;
 }
+@media (min-width: 1440px) {
+  .content .lists .list .list-header .radio.check::before {
+    font-size: 1em;
+    position: relative;
+    top: 4px;
+  }
+}
 .content .lists .list .list-header p {
   font-family: "regular";
   font-size: 0.72em;
   color: hsl(234, 39%, 85%);
+}
+@media (min-width: 1440px) {
+  .content .lists .list .list-header p {
+    font-size: 1.1em;
+  }
 }
 .content .lists .list .list-header p:hover {
   color: hsl(235, 24%, 19%);
@@ -173,6 +242,16 @@ main {
   justify-content: center;
   align-items: center;
   gap: 1em;
+  isolation: isolate;
+}
+@media (min-width: 1440px) {
+  .content .filters {
+    padding: 1em 1.3em;
+    position: relative;
+    top: -67px;
+    width: fit-content;
+    margin-inline: auto;
+  }
 }
 .content .filters p {
   cursor: pointer;
@@ -197,10 +276,21 @@ main {
   align-items: center;
   gap: 1em;
 }
+@media (min-width: 1440px) {
+  .content .info {
+    padding: 1.1em 1.3em;
+    isolation: isolate;
+  }
+}
 .content .info p {
   font-family: "regular";
   font-size: 0.7em;
   color: hsl(234, 11%, 52%);
+}
+@media (min-width: 1440px) {
+  .content .info p {
+    font-size: 0.9em;
+  }
 }
 .content .info .clear {
   cursor: pointer;
@@ -208,6 +298,11 @@ main {
   font-size: 0.7em;
   text-transform: capitalize;
   color: hsl(234, 11%, 52%);
+}
+@media (min-width: 1440px) {
+  .content .info .clear {
+    font-size: 0.8em;
+  }
 }
 .content .info .clear:hover {
   color: hsl(235, 24%, 19%);
@@ -218,7 +313,18 @@ main {
   font-family: "bold";
   padding-top: 3.2em;
   font-size: 0.83em;
+  position: relative;
   color: hsl(234, 11%, 52%);
+}
+@media (min-width: 1440px) {
+  .drag {
+    position: relative;
+    font-size: 0.8em;
+    top: 20px;
+    padding: 0;
+    margin-top: -2.8em;
+    padding-bottom: 3em;
+  }
 }
 
 header {
@@ -229,7 +335,7 @@ header {
   background-repeat: no-repeat;
   background-position: center;
 }
-@media (max-width: 1440px) {
+@media (min-width: 1440px) {
   header {
     height: 300px;
   }
@@ -256,6 +362,18 @@ header .nav .theme-toggle {
   background-image: url("../images/icon-sun.svg");
   background-repeat: no-repeat;
   cursor: pointer;
+}
+@media (min-width: 1440px) {
+  header .nav {
+    padding: 4.8em 0;
+  }
+  header .nav p {
+    font-size: 2.4em;
+  }
+  header .nav .theme-toggle {
+    width: 25px;
+    height: 25px;
+  }
 }
 
 .light main {

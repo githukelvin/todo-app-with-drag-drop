@@ -4,7 +4,7 @@
 
 main{
     width: 100%;
-    height: 100dvh;
+    height: fit-content;
 }
 
 .content{
@@ -12,8 +12,26 @@ main{
     flex-direction: column;
     gap: 1em;
     margin-top: -5.9em;
+    position: relative;
+    isolation: isolate;
+    box-shadow:
+            0.2px 4.8px 1.4px rgba(0, 0, 0, 0.17),
+            0.4px 10.6px 3.2px rgba(0, 0, 0, 0.198),
+            0.7px 17.8px 5.3px rgba(0, 0, 0, 0.222),
+            1px 26.9px 8.1px rgba(0, 0, 0, 0.24),
+            1.5px 38.8px 11.6px rgba(0, 0, 0, 0.253),
+            2.1px 54.9px 16.5px rgba(0, 0, 0, 0.261),
+            3px 77.9px 23.4px rgba(0, 0, 0, 0.261),
+            4.4px 113.2px 33.9px rgba(0, 0, 0, 0.252),
+            6.8px 174.4px 52.3px rgba(0, 0, 0, 0.231),
+            12px 310px 93px rgba(0, 0, 0, 0.185);
+    @include responsive(1440px){
+        margin-top: -8.9em;
+        gap: 1.2em;
+    }
     .form{
         @include all;
+
        form{
         padding: .95em 1.3em;
         width: 100%;
@@ -22,6 +40,10 @@ main{
         justify-content: space-between;
         align-items: center;
         gap: .9em;
+        @include responsive(1440px){
+            padding: 1.3em 1.3em;
+            gap: 1.6em;
+        }
         input[type="text"]{
             width: 100%;
             // padding: 1em;
@@ -31,22 +53,29 @@ main{
             color: $LightGrayishBlue;
             font-family: 'regular';
             font-size: 1.2em;
-           
+           @include responsive(1440px){
+            font-size: 1.37em;
+           }
             &::placeholder{
                 color: $DarkGrayishBlue;
                 font-weight: 400;
                 font-size: .6em;
+                @include responsive(1440px){
+                    font-size: .8em;
+                }
             }
         }
        .radio
        {
         @include radio;
+       
 
        }
        }
     }
      .lists{
         @include all;
+        isolation: isolate;
        .list{
         padding: 1em 1.3em;
         width: 100%;
@@ -54,6 +83,10 @@ main{
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+
+        @include responsive(1440px){
+            padding: 1.235em 1.3em;
+        }
         
         &:not(:last-child) {
                 border-bottom: 1px solid rgba($DarkGrayishBlue,.3);
@@ -64,6 +97,9 @@ main{
             align-items: center;
             gap: .65em;
             height: auto;
+            @include responsive(1440px){
+                gap: 1.5em;
+            }
             .radio {
                     @include radio;
             
@@ -73,6 +109,9 @@ main{
                 font-family: 'regular';
                 font-size: .72em;
                 color: $LightGrayishBlue;
+                @include responsive(1440px){
+                    font-size: 1.1em;
+                }
         
                 &:hover {
                     color: $VeryDarkDesaturatedBlue;
@@ -107,6 +146,16 @@ main{
         justify-content: center;
         align-items: center;
         gap:1em;
+        isolation: isolate;
+        // z-index: -1;
+       
+        @include responsive(1440px){
+            padding: 1em 1.3em;
+            position: relative;
+            top: -67px;
+            width: fit-content;
+            margin-inline: auto;
+        }
         p{
             cursor: pointer;
             font-family: 'bold';
@@ -131,10 +180,20 @@ main{
         justify-content: space-between;
         align-items: center;
         gap:1em;
+       
+       
+        @include responsive(1440px){
+            padding: 1.1em 1.3em;    
+            isolation: isolate;
+        }
+
         p{
             font-family: 'regular';
             font-size: .7em;
             color: $DarkGrayishBlue;
+            @include responsive(1440px){
+            font-size: .9em;
+            }
         }
         .clear{
             cursor: pointer;
@@ -142,6 +201,10 @@ main{
             font-size: .7em;
             text-transform: capitalize;
             color: $DarkGrayishBlue;
+            // isolation: isolate;
+            @include responsive(1440px){
+                font-size: .8em;
+            }
             &:hover{
                 color: $VeryDarkDesaturatedBlue;
             }
@@ -154,8 +217,16 @@ main{
     font-family: 'bold';
     padding-top: 3.2em;
     font-size: .83em;
-    // word-spacing: 2px;
+    position: relative;
     color: $DarkGrayishBlue;
+    @include responsive(1440px){
+      position: relative;
+      font-size: .8em;
+      top:20px;
+      padding: 0;
+      margin-top: -2.8em;
+      padding-bottom: 3em;
+    }
 
 
 }

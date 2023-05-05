@@ -4,7 +4,7 @@
 
 main{
     width: 100%;
-    height: fit-content;
+    height: 100%;
 }
 
 .content{
@@ -14,17 +14,7 @@ main{
     margin-top: -5.9em;
     position: relative;
     isolation: isolate;
-    box-shadow:
-            0.2px 4.8px 1.4px rgba(0, 0, 0, 0.17),
-            0.4px 10.6px 3.2px rgba(0, 0, 0, 0.198),
-            0.7px 17.8px 5.3px rgba(0, 0, 0, 0.222),
-            1px 26.9px 8.1px rgba(0, 0, 0, 0.24),
-            1.5px 38.8px 11.6px rgba(0, 0, 0, 0.253),
-            2.1px 54.9px 16.5px rgba(0, 0, 0, 0.261),
-            3px 77.9px 23.4px rgba(0, 0, 0, 0.261),
-            4.4px 113.2px 33.9px rgba(0, 0, 0, 0.252),
-            6.8px 174.4px 52.3px rgba(0, 0, 0, 0.231),
-            12px 310px 93px rgba(0, 0, 0, 0.185);
+    
     @include responsive(1440px){
         margin-top: -8.9em;
         gap: 1.2em;
@@ -54,7 +44,7 @@ main{
             font-family: 'regular';
             font-size: 1.2em;
            @include responsive(1440px){
-            font-size: 1.37em;
+            font-size: 1.35em;
            }
             &::placeholder{
                 color: $DarkGrayishBlue;
@@ -72,10 +62,15 @@ main{
 
        }
        }
-    }
-     .lists{
+    }     .lists{
         @include all;
         isolation: isolate;
+        $color: #000000;
+        box-shadow:
+                0px 10+9px 11.6px 20px rgba($color, 0.1),
+                    -5px 15+9px 16.5px 25px rgba($color, 0.095),
+                    -10px 20+9px 23.4px 30px rgba($color, 0.08),
+                -20px 25+9px 33.9px 35px rgba($color, 0.05);
        .list{
         padding: 1em 1.3em;
         width: 100%;
@@ -83,13 +78,18 @@ main{
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+       &:hover{
+         .img {
+                display: block;
+            }
+       }
 
         @include responsive(1440px){
             padding: 1.235em 1.3em;
         }
         
         &:not(:last-child) {
-                border-bottom: 1px solid rgba($DarkGrayishBlue,.3);
+                border-bottom: 1px solid rgba($DarkGrayishBlue,.2);
             }
         .list-header{
             display: flex;
@@ -109,12 +109,14 @@ main{
                 font-family: 'regular';
                 font-size: .72em;
                 color: $LightGrayishBlue;
+                cursor: pointer;
                 @include responsive(1440px){
                     font-size: 1.1em;
                 }
         
                 &:hover {
-                    color: $VeryDarkDesaturatedBlue;
+                    color: $LightGrayishBluehover;
+                    
                 }
                 &.check{
                     text-decoration: line-through;
@@ -130,6 +132,9 @@ main{
             width: $size;
             height: $size;
             cursor: pointer;
+            @include responsive(1440px){
+                display: none;
+            }
 
             img {
                 width: 100%;
@@ -166,7 +171,7 @@ main{
                 color: $LightGrayishBluehover;
             }
             &.active{
-                color: $VeryDarkDesaturatedBlue;
+                color: $BrightBlue;
             }
         }
 
@@ -206,7 +211,7 @@ main{
                 font-size: .8em;
             }
             &:hover{
-                color: $VeryDarkDesaturatedBlue;
+                color: $LightGrayishBluehover;
             }
         }
      }

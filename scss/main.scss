@@ -10,6 +10,7 @@ header{
     background-size:cover;
     background-repeat: no-repeat;
     background-position: center;
+    
 
     // include responsive
     @include responsive(1440px){
@@ -54,17 +55,59 @@ header{
 }
 // light theme
 .light{
-    main{
         background: $VeryLightGray;
-    }
     header{
         background-image: url("../images/bg-desktop-light.jpg");
+        
         .nav{
-           
+        
             .theme-toggle{
                 background-image: url("../images/icon-moon.svg");
             }
         }
     }
-  
+        .content .lists,
+        .content .filters,
+        .content .info,
+        .content .form{
+            background: #fff;
+        }
+        .content .form form input[type=text] {
+        background:#fff;
+        }
+        .content .lists{
+            box-shadow:
+                    0.3px 5.1px 2.6px rgba($LightGrayishBluel, 0.13),
+                    0.8px 12.2px 6.2px rgba($LightGrayishBluel, 0.124),
+                    1.5px 23px 11.6px rgba($LightGrayishBluel, 0.115),
+                    2.7px 41.1px 20.8px rgba($LightGrayishBluel, 0.1),
+                    5px 76.9px 38.9px rgba($LightGrayishBluel, 0.067),
+                    12px 184px 93px rgba($LightGrayishBluel, 0.011);
+            $color:$VeryLightGray;
+        }
+        .content .lists .list .list-header p{
+            color: $VeryDarkGrayishBluel;
+            &:hover{
+                color: $VeryheavyDarkGrayishBlue;
+            }
+            &.check{
+                color:$DarkGrayishBluel;
+            }
+        }
+        .content .lists .list .list-header .radio:hover {
+            background: linear-gradient(#fff,#fff) padding-box, linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
+        }
+        .content .form form .radio:hover {
+            background: linear-gradient(#fff, #fff) padding-box, linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
+        }
+        .content .filters p{
+            color: $DarkGrayishBluel;
+        
+        &:hover {
+            color:$VeryDarkBlue;
+        }
+        }
+        .attribution{
+            color:$VeryDarkBlue
+        }
 }

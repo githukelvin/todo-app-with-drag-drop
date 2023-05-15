@@ -175,7 +175,7 @@ main {
     gap: 1.5em;
   }
 }
-.content .lists .list .list-header .radio {
+.content .lists .list .list-header .radioh {
   width: 20px;
   height: 20px;
   font-size: 1em;
@@ -185,15 +185,15 @@ main {
   position: relative;
 }
 @media (min-width: 1440px) {
-  .content .lists .list .list-header .radio {
+  .content .lists .list .list-header .radioh {
     width: 25px;
     height: 25px;
   }
 }
-.content .lists .list .list-header .radio:hover {
+.content .lists .list .list-header .radioh:hover {
   background: linear-gradient(hsl(235, 24%, 19%), hsl(235, 24%, 19%)) padding-box, linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
 }
-.content .lists .list .list-header .radio.check::before {
+.content .lists .list .list-header .radioh.check::before {
   content: "\f00c";
   font-family: "Font Awesome 5 Free";
   background-image: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
@@ -204,7 +204,7 @@ main {
   font-weight: bold;
 }
 @media (min-width: 1440px) {
-  .content .lists .list .list-header .radio.check::before {
+  .content .lists .list .list-header .radioh.check::before {
     font-size: 1em;
     position: relative;
     top: 4px;

@@ -100,9 +100,8 @@ main{
             @include responsive(1440px){
                 gap: 1.5em;
             }
-            .radio {
+            .radioh{
                     @include radio;
-            
                 }
             
             p {

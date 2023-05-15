@@ -402,6 +402,7 @@ header .nav .theme-toggle {
 }
 .light .content .form form input[type=text] {
   background: #fff;
+  color: hsl(235, 21%, 11%);
 }
 .light .content .lists {
   box-shadow: 0.3px 5.1px 2.6px rgba(210, 211, 219, 0.13), 0.8px 12.2px 6.2px rgba(210, 211, 219, 0.124), 1.5px 23px 11.6px rgba(210, 211, 219, 0.115), 2.7px 41.1px 20.8px rgba(210, 211, 219, 0.1), 5px 76.9px 38.9px rgba(210, 211, 219, 0.067), 12px 184px 93px rgba(210, 211, 219, 0.011);

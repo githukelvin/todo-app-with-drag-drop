@@ -131,6 +131,10 @@ main{
             width: $size;
             height: $size;
             cursor: pointer;
+            background-image: url("../images/icon-cross.svg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
             @include responsive(1440px){
                 display: none;
             }
@@ -180,7 +184,7 @@ main{
         @include all;
         padding: 1.2em 1.3em;
         display: flex;
-        flex-direction: row;
+        flex-direction: row-reverse;
         justify-content: space-between;
         align-items: center;
         gap:1em;

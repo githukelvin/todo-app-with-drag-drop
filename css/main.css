@@ -232,6 +232,10 @@ main {
   width: 14px;
   height: 14px;
   cursor: pointer;
+  background-image: url("../images/icon-cross.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 @media (min-width: 1440px) {
   .content .lists .img {
@@ -280,7 +284,7 @@ main {
   border-radius: 5px;
   padding: 1.2em 1.3em;
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
   gap: 1em;
@@ -416,7 +420,7 @@ header .nav .theme-toggle {
 .light .content .lists .list .list-header p.check {
   color: hsl(236, 9%, 61%);
 }
-.light .content .lists .list .list-header .radio:hover {
+.light .content .lists .list .list-header .radioh:hover {
   background: linear-gradient(#fff, #fff) padding-box, linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
 }
 .light .content .form form .radio:hover {

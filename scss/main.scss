@@ -10,7 +10,7 @@ header{
     background-size:cover;
     background-repeat: no-repeat;
     background-position: center;
-    
+    transition: background-image 100ms ease-in;
 
     // include responsive
     @include responsive(1440px){

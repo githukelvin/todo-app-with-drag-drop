@@ -43,6 +43,8 @@ main{
             color: $LightGrayishBlue;
             font-family: 'regular';
             font-size: 1.2em;
+            transition: background 200ms ease-in;
+            transition: color 220ms ease-in;
            @include responsive(1440px){
             font-size: 1.35em;
            }
@@ -112,7 +114,7 @@ main{
                 @include responsive(1440px){
                     font-size: 1.1em;
                 }
-        
+                transition: color 200ms ease-in;
                 &:hover {
                     color: $LightGrayishBluehover;
                     

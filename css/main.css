@@ -27,6 +27,7 @@ html {
 
 body {
   background: hsl(235, 21%, 11%);
+  transition: background 200ms ease-in;
 }
 
 .container {
@@ -87,6 +88,8 @@ main {
   color: hsl(234, 39%, 85%);
   font-family: "regular";
   font-size: 1.2em;
+  transition: background 200ms ease-in;
+  transition: color 220ms ease-in;
 }
 @media (min-width: 1440px) {
   .content .form form input[type=text] {
@@ -215,6 +218,7 @@ main {
   font-size: 0.72em;
   color: hsl(234, 39%, 85%);
   cursor: pointer;
+  transition: color 200ms ease-in;
 }
 @media (min-width: 1440px) {
   .content .lists .list .list-header p {
@@ -347,6 +351,7 @@ header {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  transition: background-image 100ms ease-in;
 }
 @media (min-width: 1440px) {
   header {

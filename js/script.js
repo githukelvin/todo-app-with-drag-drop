@@ -12,15 +12,6 @@ let Completed =document.querySelector(".Completed");
 let info  = document.querySelector(".info")
 let   item ;
 
-// let divChild =`    <div class="list">
-//            <div class="list-header">
-//             <div class="radioh " role="radio"></div>
-//             <p class="para">${inputValue}</p>
-//            </div>
-//           <div class="img">
-//               <img src="./images/icon-cross.svg" alt="cross" class="cross">
-//           </div>
-//       </div>`;
 
 // prevent form from submitting
 
@@ -37,6 +28,7 @@ form.addEventListener("submit", (e) => {
 
 // listen to the keydown of enter
 input.addEventListener("keydown", (e) => {
+  
     if (e.keyCode === 13) {
       inputValue = input.value;
         if (inputValue) {
@@ -56,16 +48,29 @@ input.addEventListener("keydown", (e) => {
     
 })
 
-
+// todos
+ let todos;
+ if (localStorage.getItem("todos") === null) {
+   todos = [];
+ } else {
+   todos = JSON.parse(localStorage.getItem("todos"));
+ }
+let remaining =[];
+function getre(){
+   remaining = todos.filter((todo) => !todo.isCompleted);
+  return remaining;
+  }
+getre();
 // listen  to radio btn click
 function check(e){
+ 
   let item = e.target;
-  console.log(item.classList.contains(".list"));
   if(item.classList.contains("radioh")){
-    console.log("yoh")
+    
     item.classList.toggle("check");
     let para = item.nextElementSibling;
     para.classList.toggle("check");
+    
   }
   // else if(){
   //   alert(item)
@@ -74,11 +79,19 @@ function check(e){
   // }
   else if(item.classList.contains("img")){
       let ditem = e.target.parentElement;
-      ditem.remove();
+         const itemele = e.target.previousElementSibling.lastElementChild.innerHTML;
+        removeData(itemele); 
+          ditem.remove();
   }
 }
 
-
+function removeData(itemele) {
+  const index = todos.findIndex((t) => t.item === itemele);
+  if (index !== -1) {
+    todos.splice(index, 1);
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }
+}
 
 
 
@@ -95,8 +108,12 @@ let allCompleted = document.querySelectorAll(".radioh.check")
 
   allCompleted.forEach(ele=>{
     let div= ele.parentElement.parentElement;
+
+    const filteredTodos = todos.filter((todo) => todo.isCompleted);
+    filteredTodos.forEach(item=>{
+      removeData(item.item)
+    }) 
     div.remove();
-    // div.style.display= "none"
   });
 })
 
@@ -139,65 +156,69 @@ Completed.addEventListener("click",()=>{
 
 // items left
 item = document.createElement("p");
-item.innerHTML = `${6} items left`;
+item.innerHTML = `${remaining.length} items left`;
 info.appendChild(item);
 
 // save to locals
-// function saveLocal() {
-//   let todos;
-//   if (localStorage.getItem("todos") === null) {
-//     todos = [];
-//   } else {
-//     todos = JSON.parse(localStorage.getItem("todos"));
-//   }
-//   const listItems = document.querySelectorAll("li");
-//   listItems.forEach((inde) => {
-//     const info = inde.textContent;
-//     let isCompleted = false;
-//     if (inde.classList.contains("completed")) {
-//       isCompleted = true;
-//     }
-//     // check if element already exists in todos array
-//     const existingItemIndex = todos.findIndex((item) => item.item === info);
+function saveLocal(){
+  let todos;
+  if(localStorage.getItem("todos")===null){
+    todos = [];
+  }
+  else{
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
+  // get elements
+  const paras= document.querySelectorAll(".para");
+  paras.forEach(para=>{
+    let text = para.innerHTML;
+    let isCompleted = false;
+    if(para.classList.contains("check")){
+      isCompleted = true; 
+    }
+    const existingItemIndex = todos.findIndex((item) => item.item === text);
+    if (existingItemIndex === -1) {
+      todos.push({ item: text, isCompleted: isCompleted });
+    }
+    else{
+      todos[existingItemIndex].isCompleted = isCompleted;
+    }
+ 
 
-//     if (existingItemIndex === -1) {
-//       todos.push({ item: info, isCompleted: isCompleted });
-//     } else {
-//       // if element exists, update isCompleted value
-//       todos[existingItemIndex].isCompleted = isCompleted;
-//     }
+  })
+   localStorage.setItem("todos", JSON.stringify(todos));
+}
+setInterval(saveLocal, 1000);
+// get data
 
-//     // check if element already exists in UI
-//     const existingListItem = document.querySelector(`li`);
-//     if (!existingListItem) {
-//       // add the element to the UI
-//       let listItem;
-//       if (isCompleted) {
-//         listItem = `<li class="completed">${info}<div class="tick"></div></li>`;
-//       } else {
-//         listItem = `<li>${info}<div class="tick"></div></li>`;
-//       }
-//       ul.innerHTML += listItem;
-//     }
-//   });
-//   localStorage.setItem("todos", JSON.stringify(todos));
+function getData() {
+  let todos;
+  if (localStorage.getItem("todos") === null) {
+    todos = [];
+  } else {
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
+  todos.forEach(({ isCompleted, item }) => {
+    let listItem;
+    if (isCompleted) {
+      listItem = ` <div class="list">
+           <div class="list-header">
+            <div class="radioh check" role="radio"></div>
+            <p class="para check">${item}</p>
+           </div>
+          <div class="img">
+          </div>`;
+    } else {
+      listItem = `    <div class="list">
+           <div class="list-header">
+            <div class="radioh " role="radio"></div>
+            <p class="para">${item}</p>
+           </div>
+          <div class="img">
+          </div>`;
+    }
+    wrapper.innerHTML += listItem;
+  });
+}
 
-//   // add click event listener to ul element to remove items from UI and localStorage
-//   ul.addEventListener("click", (e) => {
-//     if (e.target.tagName === "LI") {
-//       const item = e.target.textContent;
-//       const index = todos.findIndex((t) => t.item === item);
-//       if (index !== -1) {
-//         todos.splice(index, 1);
-//         localStorage.setItem("todos", JSON.stringify(todos));
-//       }
-//       e.target.remove();
-//     }
-//   });
-// }
-
-
-
-
-
-
+document.addEventListener("DOMContentLoaded", getData);
